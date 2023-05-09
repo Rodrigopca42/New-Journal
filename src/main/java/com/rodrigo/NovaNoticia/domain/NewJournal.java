@@ -23,6 +23,7 @@ public class NewJournal implements Serializable{
 	@Column(length = 1000)
 	private String noticia;
 	
+	
 	private Integer categorias;
 	
 	public NewJournal() {

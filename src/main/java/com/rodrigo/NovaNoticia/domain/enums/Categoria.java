@@ -24,17 +24,17 @@ public enum Categoria {
 	}
 	
 	
-	public static Categoria toEnum(Integer cod) {
-		if(cod == null) {
+	public static Categoria toEnum(Integer codigo) {
+		if(codigo == null) {
 			return null;
 		}
 		for(Categoria x: Categoria.values()) {
-			if(cod.equals(x.getCodigo())) {
+			if(codigo.equals(x.getCodigo())) {
 				return x;
 			}
 		}
 		
-	throw new IllegalArgumentException("Caetegoria não encontrada! Id"+ cod);	
+	throw new IllegalArgumentException("Caetegoria não encontrada! Id"+ codigo);	
 	}
 	
 }
