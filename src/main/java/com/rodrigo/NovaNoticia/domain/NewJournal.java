@@ -3,16 +3,24 @@ package com.rodrigo.NovaNoticia.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import com.rodrigo.NovaNoticia.domain.enums.Categoria;
 
+@Entity
 public class NewJournal implements Serializable{
 	private static final long serialVersionUID = 1L; 
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String titulo;
 	private String noticia;
 	
-	private Categoria categorias;
+	private Integer categorias;
 	
 	public NewJournal() {
 		super();
@@ -23,7 +31,7 @@ public class NewJournal implements Serializable{
 		this.id = id;
 		this.titulo = titulo;
 		this.noticia = noticia;
-		this.categorias = categorias;
+		this.categorias = categorias.getCodigo();
 	}
 
 	public Integer getId() {
@@ -51,11 +59,11 @@ public class NewJournal implements Serializable{
 	}
 
 	public Categoria getCategorias() {
-		return categorias;
+		return Categoria.toEnum(categorias);
 	}
 
 	public void setCategorias(Categoria categorias) {
-		this.categorias = categorias;
+		this.categorias = categorias.getCodigo();
 	}
 
 	@Override
