@@ -18,11 +18,10 @@ public class DBService {
 	
 	public void instanciaDB() {
 		
-		NewJournal nj1 = new NewJournal(null, "A vida a dois",
-				"Muitas pessoas não estão prontas para casar, quem dirá formar família. ",
+		NewJournal nj1 = new NewJournal(null, "A vida a dois","Muitas pessoas não estão prontas para casar, quem dirá formar família.",
 				Categoria.COMPORTAMENTO);
 		
-		NewJournal nj2 = new NewJournal(null,"Basket brasileiro cresce a cada ano",
+		NewJournal nj2 = new NewJournal(null, "Basket brasileiro cresce a cada ano",
 				"Muitos brasileiros tem o sonho de se tornar jogadores de bascketboll.", 
 				Categoria.ESPORTE);
 		

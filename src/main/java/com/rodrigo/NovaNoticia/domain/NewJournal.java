@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.rodrigo.NovaNoticia.domain.DTO.NewJournalDTO;
 import com.rodrigo.NovaNoticia.domain.enums.Categoria;
 
 @Entity
@@ -23,19 +24,29 @@ public class NewJournal implements Serializable{
 	@Column(length = 1000)
 	private String noticia;
 	
-	
 	private Integer categorias;
 	
 	public NewJournal() {
 		super();
 	}
-
+	
+	
+	
 	public NewJournal(Integer id, String titulo, String noticia, Categoria categorias) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.noticia = noticia;
 		this.categorias = categorias.getCodigo();
+	}
+
+
+	public NewJournal(NewJournalDTO obj) {
+		super();
+		this.id = obj.getId();
+		this.titulo = obj.getTitulo();
+		this.noticia = obj.getNoticia();
+		this.categorias = obj.getCategorias().getCodigo();
 	}
 
 	public Integer getId() {

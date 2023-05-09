@@ -19,14 +19,7 @@ import com.rodrigo.NovaNoticia.domain.enums.Categoria;
 			super();
 		}
 
-		public NewJournalDTO(Integer id, String titulo, String noticia, Categoria categorias) {
-			super();
-			this.id = id;
-			this.titulo = titulo;
-			this.noticia = noticia;
-			this.categorias = categorias.getCodigo();
-		}
-		
+
 		public NewJournalDTO(NewJournal newJournal) {
 			super();
 			id = newJournal.getId();
@@ -34,7 +27,7 @@ import com.rodrigo.NovaNoticia.domain.enums.Categoria;
 			noticia = newJournal.getNoticia();
 			categorias = newJournal.getCategorias().getCodigo();
 		}
-
+		
 		public Integer getId() {
 			return id;
 		}
