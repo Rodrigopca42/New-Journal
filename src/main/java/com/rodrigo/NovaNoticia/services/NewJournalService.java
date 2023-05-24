@@ -31,6 +31,19 @@ public class NewJournalService {
 		NewJournal newObj = new NewJournal(objDTO);
 		return repository.save(newObj);
 	}
+
+	public NewJournal update(Integer id, NewJournalDTO objDTO) {
+		objDTO.setId(id);
+		NewJournal oldObj = findById(id);
+		oldObj = new NewJournal(objDTO);
+		return repository.save(oldObj);
+	}
+
+	public void delete(Integer id) {
+		NewJournal obj = findById(id);
+		repository.deleteById(id);
+		
+	}
 	
 }
 

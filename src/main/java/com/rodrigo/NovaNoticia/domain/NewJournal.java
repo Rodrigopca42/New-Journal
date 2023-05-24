@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.validation.constraints.NotNull;
 
 import com.rodrigo.NovaNoticia.domain.DTO.NewJournalDTO;
 import com.rodrigo.NovaNoticia.domain.enums.Categoria;
@@ -19,12 +21,18 @@ public class NewJournal implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@NotNull(message = "O campo Título é requerido" )
 	private String titulo;
 	
+	@NotNull(message = "O campo Notícia é requerido" )
 	@Column(length = 1000)
 	private String noticia;
 	
 	private Integer categorias;
+	
+	@Lob
+	private Byte[] image;
 	
 	public NewJournal() {
 		super();
@@ -32,12 +40,13 @@ public class NewJournal implements Serializable{
 	
 	
 	
-	public NewJournal(Integer id, String titulo, String noticia, Categoria categorias) {
+	public NewJournal(Integer id, String titulo, String noticia, Categoria categorias, Byte[] image) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.noticia = noticia;
 		this.categorias = categorias.getCodigo();
+		this.image = image;
 	}
 
 
@@ -80,6 +89,14 @@ public class NewJournal implements Serializable{
 	public void setCategorias(Categoria categorias) {
 		this.categorias = categorias.getCodigo();
 	}
+	
+	public Byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(Byte[] image) {
+		this.image = image;
+	}
 
 	@Override
 	public int hashCode() {
@@ -97,6 +114,10 @@ public class NewJournal implements Serializable{
 		NewJournal other = (NewJournal) obj;
 		return Objects.equals(id, other.id);
 	}
+
+
+
+	
 	
 	
 }

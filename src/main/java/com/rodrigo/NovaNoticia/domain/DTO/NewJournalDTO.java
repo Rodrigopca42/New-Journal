@@ -14,6 +14,7 @@ import com.rodrigo.NovaNoticia.domain.enums.Categoria;
 		private String titulo;
 		private String noticia;
 		private Integer categorias;
+		private Byte[] image;
 		
 		public NewJournalDTO() {
 			super();
@@ -26,6 +27,7 @@ import com.rodrigo.NovaNoticia.domain.enums.Categoria;
 			titulo = newJournal.getTitulo();
 			noticia = newJournal.getNoticia();
 			categorias = newJournal.getCategorias().getCodigo();
+			image = newJournal.getImage();		
 		}
 		
 		public Integer getId() {
@@ -58,6 +60,16 @@ import com.rodrigo.NovaNoticia.domain.enums.Categoria;
 
 		public void setCategorias(Categoria categorias) {
 			this.categorias = categorias.getCodigo();
+		}
+
+
+		public Byte[] getImage() {
+			return image;
+		}
+
+
+		public void setImage(Byte[] image) {
+			this.image = image;
 		}
 	}
 
